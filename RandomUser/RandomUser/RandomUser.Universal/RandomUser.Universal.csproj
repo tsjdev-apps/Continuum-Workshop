@@ -113,6 +113,12 @@
     <Compile Include="View\Controls\UserOverviewControl.xaml.cs">
       <DependentUpon>UserOverviewControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Pages\UserDetailPage.xaml.cs">
+      <DependentUpon>UserDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\UserOverviewPage.xaml.cs">
+      <DependentUpon>UserOverviewPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -156,6 +162,14 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="View\Controls\UserOverviewControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Pages\UserDetailPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Pages\UserOverviewPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
