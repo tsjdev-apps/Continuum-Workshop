@@ -90,6 +90,7 @@
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
     <None Include="project.json" />
+    <PRIResource Include="Resources\en\Resources.resw" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Action\InvokeCommandWithClickedItemAction.cs" />
