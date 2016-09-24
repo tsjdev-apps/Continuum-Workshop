@@ -21,6 +21,7 @@ namespace RandomUser.Universal.Init
             SimpleIoc.Default.Register<IDialogService, DialogService>();
             SimpleIoc.Default.Register<IHttpClientService, HttpClientService>();
             SimpleIoc.Default.Register<IMappingService, MappingService>();
+            SimpleIoc.Default.Register<IProjectionService, ProjectionService>();
             SimpleIoc.Default.Register<IResourceService, ResourceService>();
             
             // Register Repositories

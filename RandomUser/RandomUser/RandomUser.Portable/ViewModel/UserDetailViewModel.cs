@@ -1,10 +1,13 @@
-﻿using RandomUser.Portable.Interfaces.Repository;
+﻿using GalaSoft.MvvmLight.Command;
+using RandomUser.Portable.Interfaces.Repository;
+using RandomUser.Portable.Interfaces.Service;
 using RandomUser.Portable.Model;
 
 namespace RandomUser.Portable.ViewModel
 {
     public class UserDetailViewModel : AsyncViewModelBase
     {
+        private readonly IProjectionService _projectionService;
         private User _user;
         public User User
         {
@@ -12,9 +15,20 @@ namespace RandomUser.Portable.ViewModel
             set { _user = value; RaisePropertyChanged(); }
         }
         
-        public UserDetailViewModel(IUserRepository userRepository)
+        public RelayCommand<User> ProjectUserCommand { get; private set; }
+
+        public UserDetailViewModel(IUserRepository userRepository, IProjectionService projectionService)
         {
+            _projectionService = projectionService;
             userRepository.SelectedUserChanged += (__, user) => User = user;
+
+            ProjectUserCommand = new RelayCommand<User>(ProjectUser);
+        }
+
+        private void ProjectUser(User user)
+        {
+            User = user;
+            _projectionService.StartProjection();
         }
     }
 }

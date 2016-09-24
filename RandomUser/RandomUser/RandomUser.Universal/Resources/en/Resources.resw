@@ -120,6 +120,9 @@
   <data name="EmailLabel.Text" xml:space="preserve">
     <value>Mail</value>
   </data>
+  <data name="MenuFlyoutItemProjectItem.Text" xml:space="preserve">
+    <value>Project User</value>
+  </data>
   <data name="MobileLabel.Text" xml:space="preserve">
     <value>Mobile</value>
   </data>

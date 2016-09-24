@@ -50,6 +50,7 @@
     <Compile Include="Interfaces\Service\IDataService.cs" />
     <Compile Include="Interfaces\Service\IHttpClientService.cs" />
     <Compile Include="Interfaces\Service\IMappingService.cs" />
+    <Compile Include="Interfaces\Service\IProjectionService.cs" />
     <Compile Include="Interfaces\Service\IResourceService.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
