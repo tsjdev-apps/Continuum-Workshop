@@ -101,9 +101,6 @@
     <Compile Include="Converter\NullToVisibilityConveter.cs" />
     <Compile Include="Converter\UserToImagePathConverter.cs" />
     <Compile Include="Init\BootStrapper.cs" />
-    <Compile Include="MainPage.xaml.cs">
-      <DependentUpon>MainPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\ResourceService.cs" />
     <Compile Include="View\Controls\Common\AlternatingRowListView.cs" />
@@ -141,10 +138,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="MainPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Style\Colors.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
