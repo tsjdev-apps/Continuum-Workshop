@@ -1,0 +1,14 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Color x:Key="AccentColor">#0A6173</Color>
+    <SolidColorBrush x:Key="AccentBrush" Color="{StaticResource AccentColor}"/>
+
+    <Color x:Key="ListViewBackgroundOneColor">#F0F0F0</Color>
+    <SolidColorBrush x:Key="ListViewBackgroundOneBrush" Color="{StaticResource ListViewBackgroundOneColor}"/>
+
+    <Color x:Key="ListViewBackgroundTwoColor">#FAFAFA</Color>
+    <SolidColorBrush x:Key="ListViewBackgroundTwoBrush" Color="{StaticResource ListViewBackgroundTwoColor}"/>
+       
+</ResourceDictionary>
