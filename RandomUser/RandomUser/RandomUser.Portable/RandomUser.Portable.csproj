@@ -42,6 +42,7 @@
     <Compile Include="DTO\Picture.cs" />
     <Compile Include="DTO\Result.cs" />
     <Compile Include="DTO\RootObject.cs" />
+    <Compile Include="Exceptions\DataNotAvailableException.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
