@@ -16,13 +16,13 @@
             </Grid.RowDefinitions>
 
             <!-- Header -->
-            <TextBlock Text="[VideoPlayer]" Style="{StaticResource HeaderTextBlockStyle}" Grid.Row="0"/>
+            <TextBlock Text="VideoPlayer" Style="{StaticResource HeaderTextBlockStyle}" Grid.Row="0"/>
             
             <!-- Content -->
-            <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Top" Grid.Row="2">
+            <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="2">
                 
                 <!-- Video Element -->
-                <Border BorderBrush="#FF140044" BorderThickness="3">
+                <Border BorderBrush="DarkGray" BorderThickness="3">
                     <MediaElement Name="VideoElement" MinHeight="200" MaxWidth="600" HorizontalAlignment="Stretch" AreTransportControlsEnabled="False"/>
                 </Border>
                 
@@ -33,8 +33,8 @@
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
-                    <Button Content="[Load Video]" Click="LoadButtonOnClick" Grid.Column="0"/>
-                    <Button x:Name="CastButton" Content="[Cast Button]" Click="CastButtonOnClick" IsEnabled="False" Grid.Column="2"/>
+                    <Button Content="Load Video" Click="LoadButtonOnClick" Grid.Column="0"/>
+                    <Button x:Name="CastButton" Content="Cast Button" Click="CastButtonOnClick" IsEnabled="False" Grid.Column="2"/>
                 </Grid>
             </StackPanel>
 
