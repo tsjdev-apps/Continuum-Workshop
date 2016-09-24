@@ -43,6 +43,9 @@
     <Compile Include="DTO\Result.cs" />
     <Compile Include="DTO\RootObject.cs" />
     <Compile Include="Exceptions\DataNotAvailableException.cs" />
+    <Compile Include="ExtensionMethods\CollectionExtensions.cs" />
+    <Compile Include="ExtensionMethods\ObjectExtensions.cs" />
+    <Compile Include="ExtensionMethods\StringExtensions.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
