@@ -1,0 +1,56 @@
+﻿<UserControl
+    x:Class="RandomUser.Universal.View.Controls.UserDetailControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    DataContext="{Binding Source={StaticResource BootStrapper}, Path=UserDetailViewModel}"
+    mc:Ignorable="d"
+    RequestedTheme="Dark">
+
+    <Grid Background="{StaticResource AccentBrush}">
+        
+        <StackPanel Margin="24,12" 
+                    HorizontalAlignment="Left"
+                    Visibility="{Binding User, Converter={StaticResource NullToVisibilityConverter}}">
+            <StackPanel.ChildrenTransitions>
+                <TransitionCollection>
+                    <EntranceThemeTransition IsStaggeringEnabled="True" />
+                </TransitionCollection>
+            </StackPanel.ChildrenTransitions>
+            
+            <StackPanel Margin="0,12" Orientation="Horizontal">
+                <Grid Width="124" Height="124">
+                    <Ellipse Fill="{StaticResource AccentBrush}" />
+                    <Ellipse>
+                        <Ellipse.Fill>
+                            <ImageBrush ImageSource="{Binding User, Converter={StaticResource UserToImagePathConverter}}" />
+                        </Ellipse.Fill>
+                    </Ellipse>
+                </Grid>
+
+                <TextBlock Text="{Binding User.FullName}"
+                           VerticalAlignment="Center"
+                           Margin="12"
+                           FontSize="22"/>
+            </StackPanel>
+            
+            <StackPanel Margin="0,12">
+                <TextBlock x:Uid="EmailLabel" Opacity="0.6" />
+                <TextBlock Text="{Binding User.Email}" />
+            </StackPanel>
+            
+            <StackPanel Margin="0,12">
+                <TextBlock x:Uid="PhoneLabel" Opacity="0.6" />
+                <TextBlock Text="{Binding User.Phone}" />
+            </StackPanel>
+            
+            <StackPanel Margin="0,12">
+                <TextBlock x:Uid="MobileLabel" Opacity="0.6" />
+                <TextBlock Text="{Binding User.Cell}" />
+            </StackPanel>
+            
+        </StackPanel>
+
+    </Grid>
+</UserControl>
