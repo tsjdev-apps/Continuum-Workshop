@@ -1,10 +1,7 @@
-﻿using RandomUser.Core.Interfaces.Repository;
-using RandomUser.Core.Model;
-using RandomUser.Portable.Interfaces.Repository;
+﻿using RandomUser.Portable.Interfaces.Repository;
 using RandomUser.Portable.Model;
-using RandomUser.Portable.ViewModel;
 
-namespace RandomUser.Core.ViewModel
+namespace RandomUser.Portable.ViewModel
 {
     public class UserDetailViewModel : AsyncViewModelBase
     {
