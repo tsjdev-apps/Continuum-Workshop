@@ -60,7 +60,7 @@
             <interactivity:Interaction.Behaviors>
                 <core:EventTriggerBehavior EventName="ItemClick">
                     <action:InvokeCommandWithClickedItemAction Command="{Binding SelectUserCommand}" />
-                    <core:NavigateToPageAction TargetPage="RandomUser.Windows.View.Pages.UserDetailPage" />
+                    <core:NavigateToPageAction TargetPage="RandomUser.Universal.View.Pages.UserDetailPage" />
                 </core:EventTriggerBehavior>
             </interactivity:Interaction.Behaviors>
             <common:AlternatingRowListView.ItemTemplate>
