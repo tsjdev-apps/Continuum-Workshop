@@ -62,6 +62,9 @@
     <Compile Include="Utils\DataServiceResponse.cs" />
     <Compile Include="Utils\HttpClientServiceError.cs" />
     <Compile Include="Utils\HttpClientServiceResponse.cs" />
+    <Compile Include="ViewModel\AsyncViewModelBase.cs" />
+    <Compile Include="ViewModel\UserDetailViewModel.cs" />
+    <Compile Include="ViewModel\UserOverviewViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="GalaSoft.MvvmLight, Version=5.3.0.19026, Culture=neutral, PublicKeyToken=e7570ab207bcb616, processorArchitecture=MSIL">
