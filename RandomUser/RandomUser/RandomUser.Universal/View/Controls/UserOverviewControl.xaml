@@ -1,0 +1,105 @@
+﻿<UserControl
+    x:Class="RandomUser.Universal.View.Controls.UserOverviewControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
+    xmlns:core="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:common="using:RandomUser.Universal.View.Controls.Common"
+    xmlns:action="using:RandomUser.Universal.Action"
+    xmlns:model="using:RandomUser.Portable.Model"
+    mc:Ignorable="d"
+    DataContext="{Binding Source={StaticResource BootStrapper}, Path=UserOverviewViewModel}"
+    d:DesignHeight="300"
+    d:DesignWidth="400">
+
+    <UserControl.Resources>
+        <MenuFlyout x:Key="ContextMenu">
+            <MenuFlyoutItem x:Uid="MenuFlyoutItemProjectItem" Text="-Project User-" Command="{Binding UserDetailViewModel.ProjectUserCommand, Source={StaticResource BootStrapper}}" CommandParameter="{Binding}"/>
+        </MenuFlyout>
+    </UserControl.Resources>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <interactivity:Interaction.Behaviors>
+            <core:EventTriggerBehavior EventName="Loaded">
+                <core:InvokeCommandAction Command="{Binding InitCommand}"/>
+            </core:EventTriggerBehavior>
+        </interactivity:Interaction.Behaviors>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="AdaptiveStates">
+                <VisualState x:Name="OneColumnState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="UserList.SelectionMode" Value="None" />
+                        <Setter Target="UserList.IsItemClickEnabled" Value="True" />
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="TwoColumnState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="640" />
+                    </VisualState.StateTriggers>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+        <TextBox Margin="12" 
+                 x:Uid="UserSearchBox"
+                 Text="{Binding Query, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                 Visibility="{Binding IsLoading, Converter={StaticResource BoolToVisibilityConverter}, ConverterParameter=r}"
+                 BorderBrush="{StaticResource AccentBrush}"/>
+
+        <common:AlternatingRowListView ItemsSource="{Binding Users}"
+                                       x:Name="UserList"
+                                       Grid.Row="1"
+                                       SelectionMode="Single"
+                                       SelectedItem="{Binding SelectedUser, Mode=TwoWay}"
+                                       OddRowBackground="{StaticResource ListViewBackgroundOneBrush}"
+                                       EvenRowBackground="{StaticResource ListViewBackgroundTwoBrush}"
+                                       Visibility="{Binding IsLoading, Converter={StaticResource BoolToVisibilityConverter}, ConverterParameter=r}">
+            <interactivity:Interaction.Behaviors>
+                <core:EventTriggerBehavior EventName="ItemClick">
+                    <action:InvokeCommandWithClickedItemAction Command="{Binding SelectUserCommand}" />
+                    <core:NavigateToPageAction TargetPage="RandomUser.Universal.View.Pages.UserDetailPage" />
+                </core:EventTriggerBehavior>
+            </interactivity:Interaction.Behaviors>
+            <common:AlternatingRowListView.ItemTemplate>
+                <DataTemplate x:DataType="model:User">
+                    <StackPanel Orientation="Horizontal"
+                                MinHeight="50">
+                        <Grid Width="32"
+                              Height="32">
+                            <Ellipse Fill="{StaticResource AccentBrush}" />
+                            <Ellipse Tag="{x:Bind Converter={StaticResource UserToImagePathConverter}}">
+                                <Ellipse.Fill>
+                                    <ImageBrush ImageSource="{x:Bind Converter={StaticResource UserToImagePathConverter}}" />
+                                </Ellipse.Fill>
+                            </Ellipse>
+                        </Grid>
+                        <TextBlock Margin="12,0"
+                                   VerticalAlignment="Center"
+                                   Text="{x:Bind FullName}"
+                                   FontSize="18"
+                                   FontFamily="Segoe UI"/>
+                    </StackPanel>
+                </DataTemplate>
+            </common:AlternatingRowListView.ItemTemplate>
+        </common:AlternatingRowListView>
+
+        <StackPanel VerticalAlignment="Center"
+			        HorizontalAlignment="Center"
+                    Grid.Row="0"
+                    Grid.RowSpan="2"
+                    Visibility="{Binding IsLoading, Converter={StaticResource BoolToVisibilityConverter}}">
+            <ProgressRing IsActive="True" />
+            <TextBlock Text="{Binding LoadingMessage}" />
+        </StackPanel>
+    </Grid>
+
+</UserControl>
