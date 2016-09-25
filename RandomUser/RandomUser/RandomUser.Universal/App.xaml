@@ -1,0 +1,25 @@
+﻿<Application
+    x:Class="RandomUser.Universal.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:RandomUser.Universal"
+    xmlns:init="using:RandomUser.Universal.Init"
+    xmlns:converter="using:RandomUser.Universal.Converter"
+    RequestedTheme="Light">
+
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Style/ExplicitStyles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+            <init:BootStrapper x:Key="BootStrapper"/>
+
+            <converter:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
+            <converter:NullToVisibilityConverter x:Key="NullToVisibilityConverter"/>
+            <converter:UserToImagePathConverter x:Key="UserToImagePathConverter"/>
+
+        </ResourceDictionary>
+    </Application.Resources>
+
+</Application>

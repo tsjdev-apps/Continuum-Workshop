@@ -1,0 +1,44 @@
+﻿<Page
+    x:Class="VideoPlayer.Universal.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:VideoPlayer.Universal"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid Margin="12,20,12,12">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Header -->
+            <TextBlock Text="VideoPlayer" Style="{StaticResource HeaderTextBlockStyle}" Grid.Row="0"/>
+            
+            <!-- Content -->
+            <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="2">
+                
+                <!-- Video Element -->
+                <Border BorderBrush="DarkGray" BorderThickness="3">
+                    <MediaElement Name="VideoElement" MinHeight="200" MaxWidth="600" HorizontalAlignment="Stretch" AreTransportControlsEnabled="False"/>
+                </Border>
+                
+                <!-- Action Buttons -->
+                <Grid Margin="0,12,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Content="Load Video" Click="LoadButtonOnClick" Grid.Column="0"/>
+                    <Button x:Name="CastButton" Content="Cast Button" Click="CastButtonOnClick" IsEnabled="False" Grid.Column="2"/>
+                </Grid>
+            </StackPanel>
+
+        </Grid>
+       
+    </Grid>
+</Page>
