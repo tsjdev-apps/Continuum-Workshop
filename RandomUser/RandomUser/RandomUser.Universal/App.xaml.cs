@@ -1,6 +1,7 @@
 ﻿using System;
 using Windows.ApplicationModel.Activation;
 using Windows.UI.Core;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
@@ -13,6 +14,14 @@ namespace RandomUser.Universal
         public App()
         {
             this.InitializeComponent();
+
+            this.UnhandledException += AppOnUnhandledException;
+        }
+
+        private async void AppOnUnhandledException(object sender, UnhandledExceptionEventArgs e)
+        {
+            e.Handled = true;
+            await new MessageDialog(e.Message).ShowAsync();
         }
 
         protected override void OnLaunched(LaunchActivatedEventArgs e)

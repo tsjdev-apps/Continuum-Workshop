@@ -8,13 +8,15 @@ namespace RandomUser.Portable.ViewModel
     public class UserDetailViewModel : AsyncViewModelBase
     {
         private readonly IProjectionService _projectionService;
+
         private User _user;
         public User User
         {
             get { return _user; }
             set { _user = value; RaisePropertyChanged(); }
         }
-        
+
+
         public RelayCommand<User> ProjectUserCommand { get; private set; }
 
         public UserDetailViewModel(IUserRepository userRepository, IProjectionService projectionService)
@@ -27,8 +29,10 @@ namespace RandomUser.Portable.ViewModel
 
         private void ProjectUser(User user)
         {
-            User = user;
-            _projectionService.StartProjection();
+            if (user == null)
+                return;
+
+            _projectionService.StartProjection(user);
         }
     }
 }

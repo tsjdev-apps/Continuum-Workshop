@@ -1,8 +1,13 @@
-﻿namespace RandomUser.Portable.Interfaces.Service
+﻿using System.Threading.Tasks;
+using RandomUser.Portable.Model;
+
+namespace RandomUser.Portable.Interfaces.Service
 {
     public interface IProjectionService
     {
-        void StartProjection();
-        void StopProjection();
+        bool IsProjecting { get; }
+
+        void StartProjection(User selectedUser);
+        Task StopProjectionAsync();
     }
 }
